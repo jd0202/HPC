@@ -54,7 +54,7 @@ int **multiplyarray(int **a, int **b, int n)
     // Construir matriz C
     c = (int **)malloc(sizeof(int *) * n); // Toma el número de filas en una matriz
     
-	clock_t start = clock();
+	
     
     for (i = 0; i < n; i++)
         *(c + i) = (int *)malloc(sizeof(int) * n);
@@ -63,7 +63,10 @@ int **multiplyarray(int **a, int **b, int n)
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
             *(*(c + i) + j) = 0;
-
+	
+	//clock_t start = clock();
+	struct timespec antes;
+	clock_gettime(CLOCK_MONOTONIC, &antes);
     // Calcular c matriz a * b = c;
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
@@ -73,9 +76,14 @@ int **multiplyarray(int **a, int **b, int n)
 	//long test = 10000000L;
 	//while( test-- )      ;    
 	
-    clock_t end = clock();
-    double elapsed = (double)(end - start)/(CLOCKS_PER_SEC);
-    printf("Time measured: %f seconds.\n", elapsed);
+    //clock_t end = clock();
+    //double elapsed = (double)(end - start)/(CLOCKS_PER_SEC);
+    //printf("Time measured: %f seconds.\n", elapsed);
+    
+    struct timespec despues;
+    clock_gettime(CLOCK_MONOTONIC, &despues);
+    
+    printf("%ld sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
     
     return c;
 }
