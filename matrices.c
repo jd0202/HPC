@@ -3,6 +3,7 @@
 #include <time.h>
 
 
+
 // Inicializar la matriz dinámica
 int **initialarray(int n)
 {
@@ -13,7 +14,7 @@ int **initialarray(int n)
     a = (int **)malloc(sizeof(int *) * n);
 
     for (i = 0; i < n; i++)
-        *(a + i) = (int *)malloc(sizeof(int) * n);
+        *(a + i) = (int *)calloc(n,sizeof(int));
 
     printf("Please input Array Elements:\n");
     fflush(stdout);
@@ -86,7 +87,7 @@ int main()
     int **a, **b, **c;
     // Arreglar un
     printf("Ingrese el n de filas y columnas\n");
-    fflush(stdout);
+    srand(time(NULL));
     scanf("%d", &n);
     a = initialarray(n);
     //outputarray(a, n);
