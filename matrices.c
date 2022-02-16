@@ -11,13 +11,10 @@ int **initialarray(int n)
 
     int **a = NULL;
 
-    a = (int **)malloc(sizeof(int *) * n);
+    a = (int **)calloc(n, sizeof(int *));
 
     for (i = 0; i < n; i++)
         *(a + i) = (int *)calloc(n,sizeof(int));
-
-    printf("Please input Array Elements:\n");
-    fflush(stdout);
 
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
@@ -52,19 +49,11 @@ int **multiplyarray(int **a, int **b, int n)
     int **c;
     int i, j, k;
     // Construir matriz C
-    c = (int **)malloc(sizeof(int *) * n); // Toma el número de filas en una matriz
-    
-	
+    c = (int **)calloc(n, sizeof(int *)); // Toma el número de filas en una matriz
     
     for (i = 0; i < n; i++)
-        *(c + i) = (int *)malloc(sizeof(int) * n);
-
-    // Inicializa la matriz c y establece los elementos de la matriz c en 0
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            *(*(c + i) + j) = 0;
+        *(c + i) = (int *) calloc(n, sizeof(int));
 	
-	//clock_t start = clock();
 	struct timespec antes;
 	clock_gettime(CLOCK_MONOTONIC, &antes);
     // Calcular c matriz a * b = c;
@@ -72,13 +61,6 @@ int **multiplyarray(int **a, int **b, int n)
         for (j = 0; j < n; j++)
             for (k = 0; k < n; k++)
                 *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
-    
-	//long test = 10000000L;
-	//while( test-- )      ;    
-	
-    //clock_t end = clock();
-    //double elapsed = (double)(end - start)/(CLOCKS_PER_SEC);
-    //printf("Time measured: %f seconds.\n", elapsed);
     
     struct timespec despues;
     clock_gettime(CLOCK_MONOTONIC, &despues);
@@ -98,14 +80,14 @@ int main()
     srand(time(NULL));
     scanf("%d", &n);
     a = initialarray(n);
-    //outputarray(a, n);
+    outputarray(a, n);
     // Matriz b
     b = initialarray(n);
-    //outputarray(b, n);
+    outputarray(b, n);
     // Matriz c
     
     c = multiplyarray(a, b, n);
-    //outputarray(c, n);
+    outputarray(c, n);
     
     return 0;
 }
