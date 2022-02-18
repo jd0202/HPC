@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <pthread.h>
 
 
 // Inicializar la matriz dinámica
@@ -43,6 +43,17 @@ void outputarray(int **a, int n)
         }
     }
 }
+
+void **multiplyRow(int **a, int **b, int **c, int n, int i)
+{
+	int j,k;
+	
+	for (j = 0; j < n; j++)
+            for (k = 0; k < n; k++)
+                *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
+	
+}
+
 // c = a * b
 int **multiplyarray(int **a, int **b, int n)
 {
@@ -54,18 +65,28 @@ int **multiplyarray(int **a, int **b, int n)
     for (i = 0; i < n; i++)
         *(c + i) = (int *) calloc(n, sizeof(int));
 	
+	
+    
+    pthread_t hilos[n];
+    	
 	struct timespec antes;
 	clock_gettime(CLOCK_MONOTONIC, &antes);
     // Calcular c matriz a * b = c;
     for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
+    {
+    	/*for (j = 0; j < n; j++)
             for (k = 0; k < n; k++)
                 *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
+        */
+        pthread_create(&hilos[n], NULL, multiplyRow(a,b,c,n,i), (void *)&n);
+	}
+	
+	
     
     struct timespec despues;
     clock_gettime(CLOCK_MONOTONIC, &despues);
     
-    printf("%ld sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
+    printf("%f sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
     
     return c;
 }
@@ -85,6 +106,7 @@ int main()
     b = initialarray(n);
     //outputarray(b, n);
     // Matriz c
+    
     
     c = multiplyarray(a, b, n);
     //outputarray(c, n);
