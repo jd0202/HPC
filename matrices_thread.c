@@ -1,10 +1,11 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <pthread.h>
 
 
-// Inicializar la matriz din√°mica
+// Inicializar la matriz din·mica
 int **initialarray(int n)
 {
     int i, j;
@@ -44,13 +45,21 @@ void outputarray(int **a, int n)
     }
 }
 
-void **multiplyRow(int **a, int **b, int **c, int n, int i)
+void **multiplyRow(int **a, int **b, int **c, int n,int n_thr,long id)
 {
-	int j,k;
 	
-	for (j = 0; j < n; j++)
-            for (k = 0; k < n; k++)
-                *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
+	int i,j,k;
+	int rows_per_thr = n/n_thr;
+	int start_index = id*rows_per_thr;
+	int final_index = (id+1)*rows_per_thr;
+	
+	  for(i=start_index;i<final_index;i++){
+	   for(j=0;j<n;j++){
+	    for(k=0;k<n;k++){
+	      c[i][j] += a[i][k]*b[k][j]; 
+	    }
+	   }
+	  }
 	
 }
 
@@ -60,26 +69,30 @@ int **multiplyarray(int **a, int **b, int n)
     int **c;
     int i, j, k;
     // Construir matriz C
-    c = (int **)calloc(n, sizeof(int *)); // Toma el n√∫mero de filas en una matriz
+    c = (int **)calloc(n, sizeof(int *)); // Toma el n˙mero de filas en una matriz
     
     for (i = 0; i < n; i++)
         *(c + i) = (int *) calloc(n, sizeof(int));
 	
 	
+	int n_hilos=16;
     
-    pthread_t hilos[n];
+    pthread_t hilos[n_hilos];
     	
 	struct timespec antes;
 	clock_gettime(CLOCK_MONOTONIC, &antes);
     // Calcular c matriz a * b = c;
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n_hilos; i++)
     {
     	/*for (j = 0; j < n; j++)
             for (k = 0; k < n; k++)
                 *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
         */
-        pthread_create(&hilos[n], NULL, multiplyRow(a,b,c,n,i), (void *)&n);
+        pthread_create(&hilos[i], NULL, multiplyRow(a,b,c,n,n_hilos,i), NULL);
 	}
+	
+	
+	
 	
 	
     
@@ -87,6 +100,7 @@ int **multiplyarray(int **a, int **b, int n)
     clock_gettime(CLOCK_MONOTONIC, &despues);
     
     printf("%f sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
+    
     
     return c;
 }
