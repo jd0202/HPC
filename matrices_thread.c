@@ -75,7 +75,7 @@ int **multiplyarray(int **a, int **b, int n)
         *(c + i) = (int *) calloc(n, sizeof(int));
 	
 	
-	int n_hilos=16;
+	int n_hilos=800;
     
     pthread_t hilos[n_hilos];
     	
@@ -88,10 +88,11 @@ int **multiplyarray(int **a, int **b, int n)
             for (k = 0; k < n; k++)
                 *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
         */
-        pthread_create(&hilos[i], NULL, multiplyRow(a,b,c,n,n_hilos,i), NULL);
+        pthread_create(&hilos[i], NULL, multiplyRow(a,b,c,n,n_hilos,i), (void*) i);
 	}
 	
-	
+	for (i = 0; i < n_hilos; i++)
+      pthread_join(hilos[i], NULL);
 	
 	
 	
@@ -101,6 +102,7 @@ int **multiplyarray(int **a, int **b, int n)
     
     printf("%f sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
     
+    pthread_exit(NULL);
     
     return c;
 }
