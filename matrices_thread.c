@@ -4,23 +4,29 @@
 #include <time.h>
 #include <pthread.h>
 
+int **a;
+int **b;
+int **c;
+int n;
+int n_hilos=2;
+
 
 // Inicializar la matriz dinámica
 int **initialarray(int n)
 {
     int i, j;
 
-    int **a = NULL;
+    int **m = NULL;
 
-    a = (int **)calloc(n, sizeof(int *));
+    m = (int **)calloc(n, sizeof(int *));
 
     for (i = 0; i < n; i++)
-        *(a + i) = (int *)calloc(n,sizeof(int));
+        *(m + i) = (int *)calloc(n,sizeof(int));
 
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
-            *(*(a + i) + j) = rand() % 11;
-    return a;
+            *(*(m + i) + j) = rand() % 11;
+    return m;
 }
 
 // Matriz de salida
@@ -45,18 +51,20 @@ void outputarray(int **a, int n)
     }
 }
 
-void **multiplyRow(int **a, int **b, int **c, int n,int n_thr,long id)
+void **multiplyRow(void* param_arg)
 {
-	
+	int id = (int) param_arg;
 	int i,j,k;
-	int rows_per_thr = n/n_thr;
+	int rows_per_thr = n/n_hilos;
 	int start_index = id*rows_per_thr;
 	int final_index = (id+1)*rows_per_thr;
+	
+	
 	
 	  for(i=start_index;i<final_index;i++){
 	   for(j=0;j<n;j++){
 	    for(k=0;k<n;k++){
-	      c[i][j] += a[i][k]*b[k][j]; 
+	      c[i][j] += a[i][k]*b[k][j];
 	    }
 	   }
 	  }
@@ -64,23 +72,20 @@ void **multiplyRow(int **a, int **b, int **c, int n,int n_thr,long id)
 }
 
 // c = a * b
-int **multiplyarray(int **a, int **b, int n)
+void **multiplyarray(int n)
 {
-    int **c;
-    int i, j, k;
+    int i;
     // Construir matriz C
     c = (int **)calloc(n, sizeof(int *)); // Toma el número de filas en una matriz
     
     for (i = 0; i < n; i++)
         *(c + i) = (int *) calloc(n, sizeof(int));
 	
-	
-	int n_hilos=800;
     
     pthread_t hilos[n_hilos];
+
     	
-	struct timespec antes;
-	clock_gettime(CLOCK_MONOTONIC, &antes);
+	clock_t begin = clock();//Iniciar el tiempo
     // Calcular c matriz a * b = c;
     for (i = 0; i < n_hilos; i++)
     {
@@ -88,30 +93,25 @@ int **multiplyarray(int **a, int **b, int n)
             for (k = 0; k < n; k++)
                 *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
         */
-        pthread_create(&hilos[i], NULL, multiplyRow(a,b,c,n,n_hilos,i), (void*) i);
+        pthread_create(&hilos[i], NULL, multiplyRow, (void*) i);
 	}
+	
 	
 	for (i = 0; i < n_hilos; i++)
       pthread_join(hilos[i], NULL);
 	
-	
-	
     
-    struct timespec despues;
-    clock_gettime(CLOCK_MONOTONIC, &despues);
+    clock_t end = clock();//Finalizar el tiempo
+    double time_spent = ((double)(end - begin) /  CLOCKS_PER_SEC);
     
-    printf("%f sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
+    printf("tiempo = %.5f\n",time_spent);
     
-    pthread_exit(NULL);
+    //pthread_exit(NULL);
     
-    return c;
 }
 //Programa principal
 int main()
 {
-    int n;
-
-    int **a, **b, **c;
     // Arreglar un
     printf("Ingrese el n de filas y columnas\n");
     srand(time(NULL));
@@ -124,8 +124,9 @@ int main()
     // Matriz c
     
     
-    c = multiplyarray(a, b, n);
+    multiplyarray(n);
     //outputarray(c, n);
+    pthread_exit(NULL);
     
     return 0;
 }
