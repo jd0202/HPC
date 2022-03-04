@@ -54,18 +54,17 @@ int **multiplyarray(int **a, int **b, int n)
     for (i = 0; i < n; i++)
         *(c + i) = (int *) calloc(n, sizeof(int));
 	
-	struct timespec antes;
-	clock_gettime(CLOCK_MONOTONIC, &antes);
+	clock_t begin = clock();
     // Calcular c matriz a * b = c;
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
             for (k = 0; k < n; k++)
                 *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
     
-    struct timespec despues;
-    clock_gettime(CLOCK_MONOTONIC, &despues);
+    clock_t end = clock();//Finalizar el tiempo
+    double time_spent = ((double)(end - begin) /  CLOCKS_PER_SEC);
     
-    printf("%ld sec, %ld nanosec elapsed \n", despues.tv_sec-antes.tv_sec,despues.tv_nsec-antes.tv_nsec);
+    printf("tiempo = %.6f\n",time_spent);
     
     return c;
 }

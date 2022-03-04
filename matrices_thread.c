@@ -8,14 +8,13 @@ int **a;
 int **b;
 int **c;
 int n;
-int n_hilos=2;
+int n_hilos=8;
 
 
 // Inicializar la matriz dinámica
 int **initialarray(int n)
 {
     int i, j;
-
     int **m = NULL;
 
     m = (int **)calloc(n, sizeof(int *));
