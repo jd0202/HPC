@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -5,113 +6,115 @@
 #include <sys/mman.h>
 #include <sys/wait.h>
 
-void create_matrix(int size, double *matrix)
+int *A;
+int *B;
+int *C;
+int n;
+int n_process=8;
+
+// Inicializar la matriz din�mica
+void initialarray(int *matrix)
 {
     int i, j;
-    int n = size;
-    srand(time(NULL));
-    for (i = 0; i < size; i++)
+    for (i = 0; i < n; i++)
     {
-        for (j = 0; j < size; j++)
+        for (j = 0; j < n; j++)
         {
-            *(matrix + i * size + j) = rand() % 10;
+            *(matrix + i * n + j) = rand() % 11;
         }
     }
 }
 
-void mult_matrix(double *A, double *B, double *C, int size, int begin, int end)
+// Matriz de salida
+void outputarray(int *matrix)
 {
-    int i, j, p;
-    for (i = 0; i < size; i++)
+    int i, j;
+    printf("Output the result:\n");
+    for (i = 0; i < n; i++)
     {
-        for (j = begin; j < end; j++)
+        for (j = 0; j < n; j++)
         {
-            for (p = 0; p < size; p++)
+            printf("%d ", *(matrix + i * n + j));
+        }
+        printf("\n");
+    }
+}
+
+void multiplyRow(int start_index, int final_index)
+{
+    int i, j, k;
+    for (i = 0; i < n; i++)
+    {
+        for (j = start_index; j < final_index; j++)
+        {
+            for (k = 0; k < n; k++)
             {
-                *(C + i * size + j) += *(A + i * size + p) * *(A + p * size + j);
+                *(C + i * n + j) += *(A + i * n + k) * *(A + k * n + j);
             }
         }
     }
 }
 
-void read_matrix(int size, double *matrix)
+void *create_shared_memory(size_t n)
 {
-    int i, j;
-    for (i = 0; i < size; i++)
-    {
-        for (j = 0; j < size; j++)
-        {
-            printf("%.0lf\t", *(matrix + i * size + j));
-        }
-        printf("\n");
-    }
-    printf("-------------------------------");
-    printf("\n");
-}
-
-void *create_shared_memory(size_t size)
-{
-    // Buffer de memoria puede ser leído y escrito
     int protection = PROT_READ | PROT_WRITE;
-    /* 
-        El buffer será compartido, lo que significa que otros
-        procesos pueden acceder a él, pero también anónimo, lo
-        que significa que procesos externos al programa no pueden
-        obtener una dirección de este. Solo el proceso actual y sus
-        hijos pueden usarlo
-    */
     int visibility = MAP_SHARED | MAP_ANONYMOUS;
-    /*
-        mmap(address, size, protection, flags, fd, offset)
-        Cuando la bandera "MAP_ANONYMOUS" está activada, el "fd" (file descriptor)
-        es ignorado. Sin embargo, algunas implementaciones requieren que sea -1.
-        El offset debe ser 0 cuando se usa la bandera "MAP_ANONYMOUS"
-    */
-    return mmap(NULL, size, protection, visibility, -1, 0);
+    return mmap(NULL, n, protection, visibility, -1, 0);
 }
-
-int main(int argc, char **argv)
+//Programa principal
+int main()
 {
-    int i, j, n, pid, begin, end, size_of_matrix_process, status;
-    int size = 4;
+    // Arreglar un
+    printf("procesos: %d\n",n_process);
+    printf("Ingrese el n de filas y columnas\n");
+    srand(time(NULL));
+    scanf("%d", &n);
 
-    double *A = create_shared_memory(size * size * sizeof(double));
-    double *B = create_shared_memory(size * size * sizeof(double));
-    double *C = create_shared_memory(size * size * sizeof(double));
+    A = create_shared_memory(n * n * sizeof(int));
+    B = create_shared_memory(n * n * sizeof(int));
+    C = create_shared_memory(n * n * sizeof(int));
 
-    create_matrix(size, A);
-    // read_matrix(size, A);
-    create_matrix(size, B);
-    // read_matrix(size, B);
-    clock_t start = clock();
-    double spent_time = 0;
-    n = 4;
-    size_of_matrix_process = size / n;
-    for (i = 0; i < n; i++)
+    initialarray(A);
+    //outputarray(A);
+    initialarray(B);
+    //outputarray(B);
+    
+    int i, pid, start_index, final_index, rows_per_proces, status;
+
+    rows_per_proces = n / n_process;
+    clock_t begin = clock();//Iniciar el tiempo
+    for (i = 0; i < n_process; i++)
     {
         pid = fork();
         if (pid == 0)
         {
-            begin = size_of_matrix_process * i;
-            end = size_of_matrix_process * (i + 1);
-            if (i == n - 1)
+            start_index = rows_per_proces * i;
+            final_index = rows_per_proces * (i + 1);
+            if (i == n_process - 1)
             {
-                end = size;
+                final_index = n;
             }
-            mult_matrix(A, B, C, size, begin, end);
-            // read_matrix(size, C);
+            multiplyRow(start_index, final_index);
+            // outputarray(size, C);
             exit(0);
         }
     }
-    while (n > 0)
+
+
+    while (n_process > 0)
     {
         pid = wait(&status);
-        --n;
+        --n_process;
     }
-    clock_t end_time = clock();
-    // read_matrix(size, C);
-    spent_time = (double)(end_time - start) / CLOCKS_PER_SEC;
-    FILE *f = fopen("result_process.txt", "a");
-    fprintf(f, "Tiempo de ejecucion: %.8f \n", spent_time);
+
+    clock_t end = clock();//Finalizar el tiempo
+    //outputarray(C);
+
+    double time_spent = ((double)(end - begin) / CLOCKS_PER_SEC);
+
+    printf("tiempo = %.5f\n", time_spent);
+
     return 0;
 }
+
+

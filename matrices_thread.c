@@ -11,7 +11,7 @@ int n;
 int n_hilos=8;
 
 
-// Inicializar la matriz dinámica
+// Inicializar la matriz dinï¿½mica
 int **initialarray(int n)
 {
     int i, j;
@@ -75,7 +75,7 @@ void **multiplyarray(int n)
 {
     int i;
     // Construir matriz C
-    c = (int **)calloc(n, sizeof(int *)); // Toma el número de filas en una matriz
+    c = (int **)calloc(n, sizeof(int *)); // Toma el nï¿½mero de filas en una matriz
     
     for (i = 0; i < n; i++)
         *(c + i) = (int *) calloc(n, sizeof(int));
