@@ -3,11 +3,11 @@
 #include <time.h>
 #include <math.h>
 
-long long circle = 0;
 
 long long monte_carlo(long long iterations)
 {
     double x, y, d;
+    long long circle = 0;
 	long long i = 0;
     for (i = 0; i < iterations; i++)
     {
@@ -17,19 +17,21 @@ long long monte_carlo(long long iterations)
         if (d <= 1)
             circle++;
     }
+    return circle;
 }
 
 int main(int argc, char *argv[])
 {
-	//int iterations = atoll(argv[1]);
-	long long iterations = 0;
+	int iterations = atoll(argv[1]);
 	//printf("Ingrese el n de iteraciones\n");
-    scanf("%lld", &iterations);
-    double pi;
+    //scanf("%d", &iterations);
+    float pi;
+    long long circle = 0;
     srand(time(NULL));
     
+    
     clock_t begin = clock();//Iniciar el tiempo
-    monte_carlo(iterations);
+    circle = monte_carlo(iterations);
     pi = 4.0 * circle / (double)iterations;
     clock_t end = clock();//Finalizar el tiempo
     double time_spent = ((double)(end - begin) /  CLOCKS_PER_SEC);

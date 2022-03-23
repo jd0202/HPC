@@ -31,8 +31,8 @@ void *monte_carlo(void *id_arg)
 int main(int argc, char **argv)
 {
     //printf("ingrese el valor de n\n");
-	scanf("%lld", &iterations);
-    //iterations = atoll(argv[1]);
+	//scanf("%lld", &iterations);
+    iterations = atoll(argv[1]);
     long rank;
     double pi;
     pthread_t hilos[num_of_threads];
