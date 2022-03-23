@@ -69,9 +69,9 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
     double l = 1;
-    int iterations = 0;
-    printf("ingrese el valor de n\n");
-    scanf("%d", &iterations);
+    int iterations = atoll(argv[1]);
+    //printf("ingrese el valor de n\n");
+    //scanf("%d", &iterations);
     double p, pi;
     long long n_crossed;
     double *adds = NULL;
@@ -83,6 +83,6 @@ int main(int argc, char *argv[])
     pi = 2.0 / (p * l);
     clock_t end = clock();
     float seconds = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("Probabilidad: %f\nPi: %f\nTiempo de ejecucion fue %.4f segundos\n", p, pi, seconds);
+    printf("Probabilidad: %f\nPi: %f\nTiempo %.6f\n", p, pi, seconds);
     return 0;
 }

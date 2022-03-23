@@ -33,8 +33,9 @@ void *monte_carlo(void *id_arg)
 int main(int argc, char **argv)
 {
     int l = 1;
-    printf("ingrese el valor de n\n");
-    scanf("%d", &iterations);
+    //printf("ingrese el valor de n\n");
+    //scanf("%d", &iterations);
+    iterations = atoll(argv[1]);
     double p, pi;
     long rank;
     pthread_t tid[num_of_threads];
@@ -48,6 +49,6 @@ int main(int argc, char **argv)
     pi = 2.0 / (p * l);
     clock_t end = clock();
     float seconds = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("Probabilidad: %f\nPi: %f\nTiempo de ejecucion fue %.4f segundos\n", p, pi, seconds);
+    printf("Probabilidad: %f\nPi: %f\nTiempo %.6f\n", p, pi, seconds);
     return 0;
 }

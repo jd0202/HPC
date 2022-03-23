@@ -64,9 +64,9 @@ long long monte_carlo(pid_t *forks, int *adds, long long iterations)
 
 int main(int argc, char *argv[])
 {
-    long long iterations = 0;
-    printf("ingrese el valor de n\n");
-    scanf("%lld", &iterations);
+    long long iterations = atoll(argv[1]);
+    //printf("ingrese el valor de n\n");
+    //scanf("%lld", &iterations);
     double pi;
     long long p_circle = 0;
     int *adds = (int *)mmap(NULL, sizeof(int *) * MAX_PROCESS, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, 1, 0);
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     p_circle = monte_carlo(forks, adds, iterations);
     pi = 4.0 * p_circle / (double)iterations;
     clock_t end_time = clock();
-    float segundos = (float)(end_time - start) / CLOCKS_PER_SEC;
-    printf("Pi: %lf\nLa ejecucion ha tomado %.8f segundos\n", pi, segundos);
+    double segundos = (double)(end_time - start) / CLOCKS_PER_SEC;
+    printf("Pi: %lf\ntiempo %.6f\n", pi, segundos);
     return 0;
 }

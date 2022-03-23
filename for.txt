@@ -1,0 +1,1 @@
+for j in {1..10}; do for i in 150 200 250 500 1000 2000 3000; do echo $i >> times_needles_threads_2.txt; ./needles_thread $i >> times_needles_threads_2.txt ; done; done
