@@ -1,280 +1,480 @@
 150
-Probabilidad: 0.973333
-Pi: 2.054795
-Tiempo 0.000281
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000277
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000254
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000268
-1000
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000255
-2000
-Probabilidad: 0.984500
-Pi: 2.031488
-Tiempo 0.000256
-3000
-Probabilidad: 0.980333
-Pi: 2.040122
-Tiempo 0.000272
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000253
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000268
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000261
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000825
-1000
-Probabilidad: 0.998000
-Pi: 2.004008
-Tiempo 0.000310
-2000
-Probabilidad: 0.993500
-Pi: 2.013085
-Tiempo 0.000272
-3000
-Probabilidad: 0.981667
-Pi: 2.037351
-Tiempo 0.000363
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000276
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000265
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000259
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000255
-1000
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000313
-2000
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000328
-3000
-Probabilidad: 0.996333
-Pi: 2.007360
-Tiempo 0.000360
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000256
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000400
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000230
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000328
-1000
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000264
-2000
-Probabilidad: 0.988500
-Pi: 2.023268
-Tiempo 0.000236
-3000
-Probabilidad: 0.992667
-Pi: 2.014775
-Tiempo 0.000267
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000262
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000228
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000303
-500
-Probabilidad: 0.990000
-Pi: 2.020202
-Tiempo 0.000271
-1000
-Probabilidad: 0.996000
-Pi: 2.008032
-Tiempo 0.000264
-2000
-Probabilidad: 0.988500
-Pi: 2.023268
-Tiempo 0.000269
-3000
-Probabilidad: 0.978000
-Pi: 2.044990
-Tiempo 0.000317
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000268
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000276
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000266
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000267
-1000
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000273
-2000
-Probabilidad: 0.990500
-Pi: 2.019182
-Tiempo 0.000264
-3000
-Probabilidad: 0.982000
-Pi: 2.036660
-Tiempo 0.000264
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000262
+Probabilidad: 0.986667
+Pi: 2.027027
+Tiempo 0.000205
 200
 Probabilidad: 0.980000
 Pi: 2.040816
-Tiempo 0.000276
+Tiempo 0.000181
 250
 Probabilidad: 1.000000
 Pi: 2.000000
-Tiempo 0.000237
+Tiempo 0.000170
 500
 Probabilidad: 1.000000
 Pi: 2.000000
-Tiempo 0.000262
+Tiempo 0.000173
 1000
-Probabilidad: 0.997000
-Pi: 2.006018
-Tiempo 0.000256
+Probabilidad: 0.995000
+Pi: 2.010050
+Tiempo 0.000163
 2000
-Probabilidad: 0.986500
-Pi: 2.027369
-Tiempo 0.000260
-3000
 Probabilidad: 1.000000
 Pi: 2.000000
-Tiempo 0.000361
+Tiempo 0.000159
+3000
+Probabilidad: 0.994333
+Pi: 2.011398
+Tiempo 0.000155
+20000
+Probabilidad: 0.985550
+Pi: 2.029324
+Tiempo 0.000201
+100000
+Probabilidad: 0.987240
+Pi: 2.025850
+Tiempo 0.033446
+500000
+Probabilidad: 0.989084
+Pi: 2.022073
+Tiempo 0.230491
+1000000
+Probabilidad: 0.985634
+Pi: 2.029151
+Tiempo 0.403887
+50000000
+Probabilidad: 0.988207
+Pi: 2.023868
+Tiempo 20.798613
 150
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000197
+200
+Probabilidad: 0.990000
+Pi: 2.020202
+Tiempo 0.000234
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000142
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000194
+1000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000176
+2000
+Probabilidad: 0.989000
+Pi: 2.022245
+Tiempo 0.000412
+3000
+Probabilidad: 0.993333
+Pi: 2.013423
+Tiempo 0.000171
+20000
+Probabilidad: 0.988700
+Pi: 2.022858
+Tiempo 0.000536
+100000
+Probabilidad: 0.982980
+Pi: 2.034629
+Tiempo 0.031523
+500000
+Probabilidad: 0.989338
+Pi: 2.021554
+Tiempo 0.211865
+1000000
+Probabilidad: 0.984785
+Pi: 2.030900
+Tiempo 0.422028
+50000000
+Probabilidad: 0.989972
+Pi: 2.020259
+Tiempo 21.795273
+150
+Probabilidad: 0.966667
+Pi: 2.068966
+Tiempo 0.000220
+200
+Probabilidad: 0.990000
+Pi: 2.020202
+Tiempo 0.000178
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000210
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000191
+1000
+Probabilidad: 0.991000
+Pi: 2.018163
+Tiempo 0.000141
+2000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000182
+3000
+Probabilidad: 0.995333
+Pi: 2.009377
+Tiempo 0.000266
+20000
+Probabilidad: 0.990550
+Pi: 2.019080
+Tiempo 0.002549
+100000
+Probabilidad: 0.992300
+Pi: 2.015520
+Tiempo 0.032175
+500000
+Probabilidad: 0.989618
+Pi: 2.020982
+Tiempo 0.165494
+1000000
+Probabilidad: 0.993068
+Pi: 2.013961
+Tiempo 0.295345
+50000000
+Probabilidad: 0.990872
+Pi: 2.018425
+Tiempo 24.637016
+150
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000214
+200
+Probabilidad: 0.995000
+Pi: 2.010050
+Tiempo 0.000139
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000182
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000155
+1000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000171
+2000
+Probabilidad: 0.995000
+Pi: 2.010050
+Tiempo 0.000184
+3000
+Probabilidad: 0.993667
+Pi: 2.012747
+Tiempo 0.000438
+20000
+Probabilidad: 0.989550
+Pi: 2.021121
+Tiempo 0.000182
+100000
+Probabilidad: 0.995560
+Pi: 2.008920
+Tiempo 0.024781
+500000
+Probabilidad: 0.988860
+Pi: 2.022531
+Tiempo 0.200547
+1000000
+Probabilidad: 0.990625
+Pi: 2.018927
+Tiempo 0.446764
+50000000
+Probabilidad: 0.990267
+Pi: 2.019658
+Tiempo 22.588997
+150
+Probabilidad: 0.986667
+Pi: 2.027027
+Tiempo 0.000206
+200
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000152
+250
+Probabilidad: 0.976000
+Pi: 2.049180
+Tiempo 0.000176
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000156
+1000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000172
+2000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000154
+3000
+Probabilidad: 0.994667
+Pi: 2.010724
+Tiempo 0.000164
+20000
+Probabilidad: 0.988400
+Pi: 2.023472
+Tiempo 0.004348
+100000
+Probabilidad: 0.988430
+Pi: 2.023411
+Tiempo 0.032736
+500000
+Probabilidad: 0.993264
+Pi: 2.013563
+Tiempo 0.173122
+1000000
+Probabilidad: 0.985413
+Pi: 2.029606
+Tiempo 0.450465
+50000000
+Probabilidad: 0.990948
+Pi: 2.018269
+Tiempo 24.506985
+150
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000165
+200
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000174
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000161
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000177
+1000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000186
+2000
+Probabilidad: 0.997000
+Pi: 2.006018
+Tiempo 0.000302
+3000
+Probabilidad: 0.990000
+Pi: 2.020202
+Tiempo 0.000144
+20000
+Probabilidad: 0.985100
+Pi: 2.030251
+Tiempo 0.008555
+100000
+Probabilidad: 0.986690
+Pi: 2.026979
+Tiempo 0.048427
+500000
+Probabilidad: 0.991528
+Pi: 2.017089
+Tiempo 0.220336
+1000000
+Probabilidad: 0.988278
+Pi: 2.023722
+Tiempo 0.451087
+50000000
+Probabilidad: 0.988200
+Pi: 2.023882
+Tiempo 18.921801
+150
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000136
+200
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000177
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000168
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000166
+1000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000182
+2000
+Probabilidad: 0.986000
+Pi: 2.028398
+Tiempo 0.000135
+3000
+Probabilidad: 0.996000
+Pi: 2.008032
+Tiempo 0.000391
+20000
+Probabilidad: 0.989650
+Pi: 2.020916
+Tiempo 0.006346
+100000
+Probabilidad: 0.988490
+Pi: 2.023288
+Tiempo 0.042165
+500000
+Probabilidad: 0.988732
+Pi: 2.022793
+Tiempo 0.192505
+1000000
+Probabilidad: 0.990139
+Pi: 2.019918
+Tiempo 0.406162
+50000000
+Probabilidad: 0.988433
+Pi: 2.023405
+Tiempo 22.240976
+150
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000144
+200
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000171
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000190
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000136
+1000
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000171
+2000
+Probabilidad: 0.994500
+Pi: 2.011061
+Tiempo 0.000707
+3000
+Probabilidad: 0.983667
+Pi: 2.033209
+Tiempo 0.000141
+20000
+Probabilidad: 0.986750
+Pi: 2.026856
+Tiempo 0.004000
+100000
+Probabilidad: 0.988610
+Pi: 2.023042
+Tiempo 0.024975
+500000
+Probabilidad: 0.985574
+Pi: 2.029274
+Tiempo 0.245055
+1000000
+Probabilidad: 0.988097
+Pi: 2.024093
+Tiempo 0.501861
+50000000
+Probabilidad: 0.988594
+Pi: 2.023076
+Tiempo 21.696608
+150
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000154
+200
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000169
+250
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000190
+500
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000198
+1000
 Probabilidad: 1.000000
 Pi: 2.000000
 Tiempo 0.000263
-200
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000394
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000264
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000268
-1000
-Probabilidad: 0.989000
-Pi: 2.022245
-Tiempo 0.000270
 2000
-Probabilidad: 0.994000
-Pi: 2.012072
-Tiempo 0.000264
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000161
 3000
-Probabilidad: 0.987333
-Pi: 2.025658
-Tiempo 0.000277
+Probabilidad: 0.985333
+Pi: 2.029770
+Tiempo 0.000196
+20000
+Probabilidad: 0.993500
+Pi: 2.013085
+Tiempo 0.002564
+100000
+Probabilidad: 0.988190
+Pi: 2.023902
+Tiempo 0.036422
+500000
+Probabilidad: 0.989582
+Pi: 2.021055
+Tiempo 0.173039
+1000000
+Probabilidad: 0.990939
+Pi: 2.018288
+Tiempo 0.385129
+50000000
+Probabilidad: 0.991264
+Pi: 2.017625
+Tiempo 22.739258
 150
 Probabilidad: 1.000000
 Pi: 2.000000
-Tiempo 0.000267
-200
-Probabilidad: 0.975000
-Pi: 2.051282
-Tiempo 0.000271
-250
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000262
-500
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000261
-1000
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000278
-2000
-Probabilidad: 0.990500
-Pi: 2.019182
-Tiempo 0.000269
-3000
-Probabilidad: 0.992667
-Pi: 2.014775
-Tiempo 0.000289
-150
-Probabilidad: 1.000000
-Pi: 2.000000
-Tiempo 0.000817
+Tiempo 0.000177
 200
 Probabilidad: 1.000000
 Pi: 2.000000
-Tiempo 0.000279
+Tiempo 0.000136
 250
 Probabilidad: 1.000000
 Pi: 2.000000
-Tiempo 0.000273
+Tiempo 0.000181
 500
-Probabilidad: 0.980000
-Pi: 2.040816
-Tiempo 0.000240
+Probabilidad: 0.988000
+Pi: 2.024291
+Tiempo 0.000144
 1000
-Probabilidad: 0.997000
-Pi: 2.006018
-Tiempo 0.000267
+Probabilidad: 1.000000
+Pi: 2.000000
+Tiempo 0.000175
 2000
-Probabilidad: 0.983000
-Pi: 2.034588
-Tiempo 0.000274
+Probabilidad: 0.971500
+Pi: 2.058672
+Tiempo 0.000462
 3000
-Probabilidad: 0.974667
-Pi: 2.051984
-Tiempo 0.000253
+Probabilidad: 0.993667
+Pi: 2.012747
+Tiempo 0.000153
+20000
+Probabilidad: 0.988400
+Pi: 2.023472
+Tiempo 0.008559
+100000
+Probabilidad: 0.987320
+Pi: 2.025686
+Tiempo 0.040777
+500000
+Probabilidad: 0.993220
+Pi: 2.013653
+Tiempo 0.119240
+1000000
+Probabilidad: 0.992199
+Pi: 2.015725
+Tiempo 0.348426
+50000000
+Probabilidad: 0.987656
+Pi: 2.024996
+Tiempo 19.072088
