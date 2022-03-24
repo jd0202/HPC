@@ -7,7 +7,7 @@
 
 long long iterations;
 long long circle = 0;
-int num_of_threads=2;
+int num_of_threads=8;
 
 
 void *monte_carlo(void *id_arg)
