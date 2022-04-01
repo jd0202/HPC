@@ -64,20 +64,22 @@ int **multiplyarray(int **a, int **b, int n)
     clock_t end = clock();//Finalizar el tiempo
     double time_spent = ((double)(end - begin) /  CLOCKS_PER_SEC);
     
-    printf("tiempo = %.6f\n",time_spent);
+    //printf("tiempo = %.6f\n",time_spent);
+    printf("%.6f;",time_spent);
     
     return c;
 }
 //Programa principal
-int main()
+int main(int argc, char *argv[])
 {
     int n;
 
     int **a, **b, **c;
     // Arreglar un
-    printf("Ingrese el n de filas y columnas\n");
+    //printf("Ingrese el n de filas y columnas\n");
     srand(time(NULL));
-    scanf("%d", &n);
+    //scanf("%d", &n);
+    n=atoll(argv[1]);
     a = initialarray(n);
     //outputarray(a, n);
     // Matriz b
