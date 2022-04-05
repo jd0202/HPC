@@ -70,7 +70,7 @@ int **multiplyarray(int **a, int **b, int n)
     return c;
 }
 //Programa principal
-int main()
+int main(int argc, char *argv[])
 {
     int n;
 
