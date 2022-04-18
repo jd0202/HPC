@@ -1,94 +1,52 @@
 #include <stdio.h>
+#include <omp.h>
 #include <stdlib.h>
 #include <time.h>
 
-
-
-// Inicializar la matriz dinámica
-int **initialarray(int n)
+int main(int argc, char **argv)
 {
-    int i, j;
+    int size, num_threads, tid, i, j, k;
+    size = atoi(argv[1]);
+    double **A = malloc(size * sizeof(double *));
+    for (i = 0; i < size; i++)
+        A[i] = malloc(size * sizeof(double));
 
-    int **a = NULL;
+    double **B = malloc(size * sizeof(double *));
+    for (i = 0; i < size; i++)
+        B[i] = malloc(size * sizeof(double));
 
-    a = (int **)calloc(n, sizeof(int *));
+    double **C = malloc(size * sizeof(double *));
+    for (i = 0; i < size; i++)
+        C[i] = malloc(size * sizeof(double));
 
-    for (i = 0; i < n; i++)
-        *(a + i) = (int *)calloc(n,sizeof(int));
-
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            *(*(a + i) + j) = rand() % 11;
-    return a;
-}
-
-// Matriz de salida
-void outputarray(int **a, int n)
-{
-    int i, j;
-    int k = 0;
-    printf("Output the result:\n");
-    for (i = 0; i < n; i++)
-    {
-        for (j = 0; j < n; j++)
-        {
-
-            printf("%d ", *(*(a + i) + j));
-            k++;
-            if (n == k)
-            {
-                printf("\n");
-                k = 0;
-            }
-        }
-    }
-}
-// c = a * b
-int **multiplyarray(int **a, int **b, int n)
-{
-    int **c;
-    int i, j, k;
-    // Construir matriz C
-    c = (int **)calloc(n, sizeof(int *)); // Toma el número de filas en una matriz
-    
-    for (i = 0; i < n; i++)
-        *(c + i) = (int *) calloc(n, sizeof(int));
-	
-	clock_t begin = clock();
-    // Calcular c matriz a * b = c;
-    for (i = 0; i < n; i++)
-        for (j = 0; j < n; j++)
-            for (k = 0; k < n; k++)
-                *(*(c + i) + j) += (*(*(a + i) + k)) * (*(*(b + k) + j)); // k es el signo de la suma
-    
-    clock_t end = clock();//Finalizar el tiempo
-    double time_spent = ((double)(end - begin) /  CLOCKS_PER_SEC);
-    
-    //printf("tiempo = %.6f\n",time_spent);
-    printf("%.6f;",time_spent);
-    
-    return c;
-}
-//Programa principal
-int main(int argc, char *argv[])
-{
-    int n;
-
-    int **a, **b, **c;
-    // Arreglar un
-    //printf("Ingrese el n de filas y columnas\n");
+    clock_t start = clock();
+    double spent_time = 0;
     srand(time(NULL));
-    //scanf("%d", &n);
-    n=atoll(argv[1]);
-    a = initialarray(n);
-    //outputarray(a, n);
-    // Matriz b
-    b = initialarray(n);
-    //outputarray(b, n);
-    // Matriz c
-    
-    c = multiplyarray(a, b, n);
-    //outputarray(c, n);
-    
+#pragma omp parallel private(tid, i, j, k) shared(A, B, C, num_threads)
+    {
+        tid = omp_get_thread_num();
+#pragma omp for
+        for (i = 0; i < size; i++)
+            for (j = 0; j < size; j++)
+                A[i][j] = rand() % 10;
+#pragma omp for
+        for (i = 0; i < size; i++)
+            for (j = 0; j < size; j++)
+                B[i][j] = rand() % 10;
+#pragma omp for
+        for (i = 0; i < size; i++)
+            for (j = 0; j < size; j++)
+                C[i][j] = 0;
+#pragma omp for
+        for (i = 0; i < size; i++)
+            for (j = 0; j < size; j++)
+                for (k = 0; k < size; k++)
+                    C[i][j] += A[i][k] * B[k][j];
+    }
+    clock_t end = clock();
+    spent_time = (double)(end - start) / CLOCKS_PER_SEC;
+    FILE *f = fopen("result.txt", "a");
+    fprintf(f, "Tiempo de ejecucion: %.8f \n", spent_time);
+    //printf("Tiempo de ejecucion: %.8f \n", spent_time);
     return 0;
 }
