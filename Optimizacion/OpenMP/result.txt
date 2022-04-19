@@ -98,3 +98,26 @@ Tiempo de ejecucion: 1.39084900
 Matrix's size 600 x 600: 
 Tiempo de ejecucion: 5.14296700 
 \n
+Try 1 \n
+Matrix's size 16 x 16: 
+Matrix's size 200 x 200: 
+Matrix's size 400 x 400: 
+Matrix's size 600 x 600: 
+\n
+Try 2 \n
+Matrix's size 16 x 16: 
+Matrix's size 200 x 200: 
+Matrix's size 400 x 400: 
+Matrix's size 600 x 600: 
+\n
+Try 3 \n
+Matrix's size 16 x 16: 
+Matrix's size 200 x 200: 
+Matrix's size 400 x 400: 
+Matrix's size 600 x 600: 
+\n
+Try 4 \n
+Matrix's size 16 x 16: 
+Matrix's size 200 x 200: 
+Matrix's size 400 x 400: 
+Matrix's size 600 x 600: 

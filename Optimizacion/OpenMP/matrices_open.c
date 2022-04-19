@@ -46,7 +46,8 @@ int main(int argc, char **argv)
     clock_t end = clock();
     spent_time = (double)(end - start) / CLOCKS_PER_SEC;
     FILE *f = fopen("result.txt", "a");
-    fprintf(f, "Tiempo de ejecucion: %.8f \n", spent_time);
+    //fprintf(f, "Tiempo de ejecucion: %.8f \n", spent_time);
     //printf("Tiempo de ejecucion: %.8f \n", spent_time);
+    printf("%.6f;",spent_time);
     return 0;
 }
