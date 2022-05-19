@@ -1,0 +1,12 @@
+--2022-05-06 14:35:43--  http://busylog.net/vps-benchmark/
+Resolving busylog.net (busylog.net)... 144.217.126.140
+Connecting to busylog.net (busylog.net)|144.217.126.140|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://busylog.net/vps-benchmark/ [following]
+--2022-05-06 14:35:44--  https://busylog.net/vps-benchmark/
+Connecting to busylog.net (busylog.net)|144.217.126.140|:443... connected.
+WARNING: cannot verify busylog.net's certificate, issued by ‘CN=R3,O=Let's Encrypt,C=US’:
+  Issued certificate has expired.
+HTTP request sent, awaiting response... 500 Internal Server Error
+2022-05-06 14:35:44 ERROR 500: Internal Server Error.
+
